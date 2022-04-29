@@ -13,3 +13,11 @@ CREATE TABLE animals(
 
 /* Add colums species into animals table */
 ALTER TABLE animals ADD COLUMN species varchar(100);
+
+/* Create owners table*/
+CREATE TABLE owners (
+  id INT GENERATED ALWAYS AS IDENTITY, 
+  full_name varchar(100) NOT NULL, 
+  age INTEGER,
+  PRIMARY KEY (id)
+);
