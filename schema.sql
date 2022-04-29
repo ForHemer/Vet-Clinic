@@ -7,7 +7,8 @@ CREATE TABLE animals(
     date_of_birth date not null,
     escape_attempts integer,
     neutered boolean,
-    weight_kg real
+    weight_kg real,
+    PRIMARY KEY (id)
 );
 
 /* Add colums species into animals table */
