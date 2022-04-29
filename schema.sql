@@ -9,3 +9,6 @@ CREATE TABLE animals(
     neutered boolean,
     weight_kg real
 );
+
+/* Add colums species into animals table */
+ALTER TABLE animals ADD COLUMN species varchar(100);
