@@ -49,3 +49,11 @@ age INTEGER,
 date_of_graduation DATE NOT NULL,
 PRIMARY KEY (id)
 );
+
+/* Create join table specializations */
+CREATE TABLE specialization (
+  species_id INT, 
+  vets_id INT, 
+  CONSTRAINT species_key FOREIGN KEY (species_id) REFERENCES species(id), 
+  CONSTRAINT vets_key FOREIGN KEY (vets_id) REFERENCES vets(id) ON DELETE CASCADE
+);
