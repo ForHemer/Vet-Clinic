@@ -57,3 +57,12 @@ CREATE TABLE specialization (
   CONSTRAINT species_key FOREIGN KEY (species_id) REFERENCES species(id), 
   CONSTRAINT vets_key FOREIGN KEY (vets_id) REFERENCES vets(id) ON DELETE CASCADE
 );
+
+/* Create join table visits */
+CREATE TABLE visits (
+  animal_id INT, 
+  vets_id INT, 
+  date_of_visit DATE, 
+  CONSTRAINT animals_key FOREIGN KEY (animal_id) REFERENCES animals(id), 
+  CONSTRAINT vets_key FOREIGN KEY (vets_id) REFERENCES vets(id)
+);
