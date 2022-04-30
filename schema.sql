@@ -40,3 +40,12 @@ ADD CONSTRAINT fk_owner FOREIGN KEY (owner_id) REFERENCES owners(id),
 /* Add column owner_id into animals which is a foreign key referencing the owners table */
 ADD COLUMN owner_id INTEGER,
 ADD CONSTRAINT fk_species FOREIGN KEY (species_id) REFERENCES species(id);
+
+/* Create vets table */
+CREATE TABLE vets (
+id INT GENERATED ALWAYS AS IDENTITY, 
+name varchar(100) NOT NULL,
+age INTEGER,
+date_of_graduation DATE NOT NULL,
+PRIMARY KEY (id)
+);
