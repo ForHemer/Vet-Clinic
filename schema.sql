@@ -40,3 +40,29 @@ ADD CONSTRAINT fk_owner FOREIGN KEY (owner_id) REFERENCES owners(id),
 /* Add column owner_id into animals which is a foreign key referencing the owners table */
 ADD COLUMN owner_id INTEGER,
 ADD CONSTRAINT fk_species FOREIGN KEY (species_id) REFERENCES species(id);
+
+/* Create vets table */
+CREATE TABLE vets (
+id INT GENERATED ALWAYS AS IDENTITY, 
+name varchar(100) NOT NULL,
+age INTEGER,
+date_of_graduation DATE NOT NULL,
+PRIMARY KEY (id)
+);
+
+/* Create join table specializations */
+CREATE TABLE specialization (
+  species_id INT, 
+  vets_id INT, 
+  CONSTRAINT species_key FOREIGN KEY (species_id) REFERENCES species(id), 
+  CONSTRAINT vets_key FOREIGN KEY (vets_id) REFERENCES vets(id) ON DELETE CASCADE
+);
+
+/* Create join table visits */
+CREATE TABLE visits (
+  animal_id INT, 
+  vets_id INT, 
+  date_of_visit DATE, 
+  CONSTRAINT animals_key FOREIGN KEY (animal_id) REFERENCES animals(id), 
+  CONSTRAINT vets_key FOREIGN KEY (vets_id) REFERENCES vets(id)
+);
